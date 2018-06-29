@@ -5,9 +5,10 @@ function showRepositories(event, data) {
   document.getElementById("repositories").innerHTML = repoList
 }
 
-function getRepositories(username) {
+function getRepositories() {
   const req = new XMLHttpRequest()
   req.addEventListener("load", showRepositories);
+  username = document.getElementById("reponame").innerHTML;
   req.open("GET", 'https://api.github.com/users/' + username + '/repos')
   req.send()
 }
